@@ -54,36 +54,38 @@ Use mouse middle wheel for scrolling
 
  A) When mouse pointer is on the image
 
- a1) scroll-down  = zoom-in
- a2) scroll-up    = zoom-outer
- a3) middle-click = re-center the image
+   - scroll-down  = zoom-in
+   - scroll-up    = zoom-outer
+   - middle-click = re-center the image
 
  B) When anywhere on the GUI window
  
- b1) Ctrl+Scroll_up   = increase the semi-major axis
- b2) Ctrl+Scroll_down = decrease the semi-major axis
+   - Ctrl+Scroll_up   = increase the semi-major axis
+   - Ctrl+Scroll_down = decrease the semi-major axis
  
- b3) Shift+Scroll_up   = increase the semi-minor axis
- b4) Shift+Scroll-down = decrease the semi-minor axis
+   - Shift+Scroll_up   = increase the semi-minor axis
+   - Shift+Scroll-down = decrease the semi-minor axis
 
- b5) Alt+Scroll_up   = increase the position angle (PA)
- b6) Alt+Scroll_down = decrease the position angle (PA)
+   - Alt+Scroll_up   = increase the position angle (PA)
+   - Alt+Scroll_down = decrease the position angle (PA)
  
- i  ) PA increases in clock-wise direction. 
- ii ) PA = 0 if semi-major axis is horizontal
- iii) Step-size is displayed in the box next to the a-/b- and PA-control bars.
-     - "Left  click" on the box: increases the step size by one pixel
-     - "Right click" on the box: decreases the step size by one pixel
+   - PA increases in clock-wise direction. 
+   - PA = 0 if semi-major axis is horizontal
+   - Step-size is displayed in the box next to the a-/b- and PA-control bars.
+ 
+   - `Left  click` on the box: increases the step size by one pixel
+   - `Right click` on the box: decreases the step size by one pixel
    
- b7) "Left/Right double click" = choose a new center for the ellipse
- b8) "Middle click" or "enter-key" = re-center the ellipse, if a new center has been already chosen
- b9) "Middle double click" = choose the new center and re-draw the ellipse at once (b7+b8)
- b10) z+Left_click = choose a new center for the ellipse (b7)
- b11) q/Esc = Ignoring the new chosen center 
+   - `Left/Right double click` = choose a new center for the ellipse
+   - `Middle click` or `enter-key` = re-center the ellipse, if a new center has been already chosen
+   - `Middle double click` = choose the new center and re-draw the ellipse at once (b7+b8)
+   -  z+Left_click = choose a new center for the ellipse (b7)
+   - q/Esc = Ignoring the new chosen center 
 
  C) When the fits file is displayed (no jpg file)
-'c': chaning the contrast
-'r': reset the contrst parameters
+ 
+   - chaning the contrast
+   - reset the contrst parameters
 
    - - - -
    
