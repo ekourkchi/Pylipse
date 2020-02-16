@@ -85,9 +85,9 @@ Use mouse middle wheel for scrolling
    
    - `Left/Right double click` = choose a new center for the ellipse
    - `Middle click` or `enter-key` = re-center the ellipse, if a new center has been already chosen
-   - `Middle double click` = choose the new center and re-draw the ellipse at once (b7+b8)
-   -  z+Left_click = choose a new center for the ellipse (b7)
-   - q/Esc = Ignoring the new chosen center 
+   - Middle double click` = choose the new center and re-draw the ellipse at once (b7+b8)
+   - z+Left_click = choose a new center for the ellipse (b7)
+   - Esc = Ignoring the new chosen center 
 
  C) When the fits file is displayed (no jpg file)
  
