@@ -5,7 +5,7 @@ A GUI for manual ellipse fitting for Elliptical and Spiral galaxies ...
 ![demo_pylipse](https://user-images.githubusercontent.com/13570487/74600799-c375b400-5053-11ea-90b0-a7546a07cfb0.png)
 
 
-## How to run: 
+## How to run
 
             python pylipse.py [options]
             
