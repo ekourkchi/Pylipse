@@ -1,11 +1,17 @@
-# Pylipse
+## Table of contents
+1. [Pylipse](#Pylipse)
+2. [How to run](#run)
+3. [Options](#Options)
+4. [Help](#Help)
+
+## Pylipse <a name="Pylipse"></a>
 
 A GUI for manual ellipse fitting for Elliptical and Spiral galaxies ...
 
 ![demo_pylipse](https://user-images.githubusercontent.com/13570487/74600799-c375b400-5053-11ea-90b0-a7546a07cfb0.png)
 
 
-## How to run
+## How to run <a name="run"></a>
 
             python pylipse.py [options]
             
@@ -13,7 +19,7 @@ A GUI for manual ellipse fitting for Elliptical and Spiral galaxies ...
  
             python  pylipse.py -j  NGC4037 
 
-## Options 
+## Options <a name="Options"></a>
 
             Use the `-h` flag to see all the following options.
 
@@ -47,7 +53,7 @@ A GUI for manual ellipse fitting for Elliptical and Spiral galaxies ...
                                     The object name
 
  
-## Help
+## Help <a name="Help"></a>
 
 ### Mouse Actions
 Use mouse middle wheel for scrolling
