@@ -40,9 +40,9 @@ A GUI for manual ellipse fitting for Elliptical and Spiral galaxies ...
               Note: PNG and FITS files should exactly match and have the same dimestions. 
 
              - Example: 
-                $ python ellipse_fit.py -j pgc44182
-                  where: "pgc44182_g.fits" and "pgc44182_gri.png" are correscponding g-band FITS and PNG color images.
-                $ python ellipse_fit.py -h 
+                $ python pylipse.py -j pgc57129
+                  where: "pgc57129_g.fits" and "pgc57129_gri.png" are correscponding g-band FITS and PNG color images.
+                $ python pylipse.py -h 
                   To see help and all available options.
 
 

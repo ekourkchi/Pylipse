@@ -20,32 +20,17 @@ from matplotlib.widgets import Slider, Button, RadioButtons
 from matplotlib.figure import Figure
 from matplotlib.colors import LogNorm
 import matplotlib.pyplot as plt
-
 from astropy.io import fits
 from astropy import wcs
-#from astropy import units as u
-#from astropy.coordinates import SkyCoord
-#from astropy.table import Table, Column
-
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 from optparse import OptionParser
 from PIL import Image, ImageTk
-
-#import pyfits
 import sys
 import os
-#import time
-#import subprocess
-#import signal
-#from math import *
-#from pylab import *
-from matplotlib.ticker import MultipleLocator  # needed to fix up minor ticks
+from matplotlib.ticker import MultipleLocator 
 from matplotlib.patches import Ellipse, Polygon
 
-#from scipy.stats import mode
 ########################
-
-
 def xcmd(cmd):
     tmp = os.popen(cmd)
     output = ''
@@ -63,8 +48,6 @@ def xcmd(cmd):
         return output
 
 ########################
-
-
 def eplot(prf, ax, isophots=True):
 
     last_peek = 0
@@ -74,9 +57,6 @@ def eplot(prf, ax, isophots=True):
         ells = [Ellipse((l[14], l[15]), 2.*l[3], 2.*l[3] *
                         (1.-l[12]), l[13], fill=0) for l in prf]
     else:
-        #    for l in prf:
-        #      print l[0],l[1],2.*(l[2]/(math.pi*(1.-l[3])))**0.5, \
-        #            2.*(1.-l[3])*((l[2]/(math.pi*(1.-l[3])))**0.5),l[4]
         ells = [Ellipse((l[0], l[1]), 2.*(l[2]/(math.pi*(1.-l[3])))**0.5,
                         2.*(1.-l[3])*((l[2]/(math.pi*(1.-l[3])))**0.5), l[4], fill=0) for l in prf]
 
@@ -112,21 +92,11 @@ def eplot(prf, ax, isophots=True):
         except:
             e.set_edgecolor('r')
 
-        # if prf_plot == 2:
-            # ax.plot([l[14]-(l[3]+5.)*cos(l[13]*pi/180.),l[14]+(l[3]+5.)*cos(l[13]*pi/180.)], \
-            # [l[15]-(l[3]+5.)*sin(l[13]*pi/180.),l[15]+(l[3]+5.)*sin(l[13]*pi/180.)],'r')
-            #bt=l[3]*(1.-l[12]) ; dt=((l[13]+90.)*pi/180.)
-            # ax.plot([l[14]-(bt+5.)*cos(dt),l[14]+(bt+5.)*cos(dt)], \
-            # [l[15]-(bt+5.)*sin(dt),l[15]+(bt+5.)*sin(dt)],'r')
-
     if last_e != None:
-        # ax.add_artist(last_e)
         x, y = ells[0].center
         return x, y, last_e.width/2., last_e.height/2., last_e.angle, ells
 
 ########################
-
-
 def read_ellipse(filename):
 
     prf = None   # ellipse data
@@ -148,11 +118,7 @@ def read_ellipse(filename):
                     tmp = []
                     for w in head:
                         tmp.append(pts[head.index(w)][z])
-# don't do this, causes small nummercal errors in iso_prf
-#          if tmp[13] >= 270: tmp[13]=tmp[13]-360.
-#          if tmp[13] > 90: tmp[13]=tmp[13]-180.
-#          if tmp[13] <= -270: tmp[13]=tmp[13]+360.
-#          if tmp[13] < -90: tmp[13]=tmp[13]+180.
+
                     prf.append(tmp)
 
     except:
@@ -263,9 +229,10 @@ def arg_parser():
   Note: PNG and FITS files should exactly match and have the same dimestions. 
 
  - Example: 
-    $ python ellipse_fit.py -j pgc44182
-      where: "pgc44182_g.fits" and "pgc44182_gri.png" are correscponding g-band FITS and PNG color images.
-    $ python ellipse_fit.py -h 
+    $ python pylipse.py -j PGC037931
+      where: "PGC037931_g.fits" and "PGC037931_gri.png" are correscponding g-band FITS and PNG color images.
+      
+    $ python pylipse.py -h 
       To see help and all available options.
 
 """)
@@ -326,11 +293,6 @@ def load_ellipse_ds9(reg_file):
     return None
 
 #################################################
-    #Circlx, Circly = myCircle(936, 1861, r)
-    #circle, = ax.plot(Circlx, Circly, color='red', lw=1)
-    # circle.set_dashes([2,3])
-
-
 def myCircle(xcenter, ycenter, r):
 
     theta = np.arange(0.0, 360.0, 1.0)*np.pi/180.0
@@ -340,8 +302,6 @@ def myCircle(xcenter, ycenter, r):
     return Circlx, Circly
 
 #################################################
-
-
 def myEllipse(xcenter, ycenter, a, b, angle):
 
     theta = np.arange(0.0, 360.0, 1.0)*np.pi/180.0
@@ -362,8 +322,6 @@ def myEllipse(xcenter, ycenter, a, b, angle):
     return x, y
 
 #################################################
-
-
 class ImDisp:
 
     def __init__(self, Xmin, Xmax, Ymin, Ymax):
@@ -474,8 +432,6 @@ class Undo_Redo:
     def current(self):
         return self.data[self.iter-1]
 #################################################
-
-
 class objEllipse():
 
     def __init__(self, ax, xcenter, ycenter, a, b, pa, color='red'):
@@ -870,7 +826,7 @@ def main(root_name):
         fout.write(help()+'\n')
         fout.close()
         subprocess.Popen(
-            'python /home/ehsan/PanStarrs/glga/data.old/194D/sdss/jpg/help_widget.py  -x -f help.tmp &', shell=True)
+            'python ./help_widget.py  -x -f help.tmp &', shell=True)
 
     help_button.on_clicked(help_me)
     #######################
@@ -1081,18 +1037,12 @@ def main(root_name):
         ds9_command += " -scale minmax"
         ds9_command += " -zoom to fit"
         ds9_command += " -pan to "+str(xcenter)+" "+str(ycenter)
-        # ds9_command += " -regions command \"ellipse "+str(xcenter)+" "+str(ycenter)+" "+str(a)+" "+str(b)+" "+str(pa)+" # color=red width=2\""
         os.system(ds9_command+" &")
 
         os.system("sleep 3")
-        ##os.system("xpaset -p ds9 pan to "+str(xcenter)+" "+str(ycenter))
-        #os.system("xpaset -p ds9 scale minmax")
-        #os.system("xpaset -p ds9 scale log")
-        #os.system("xpaset -p ds9 height 500")
-        #os.system("xpaset -p ds9 width 500")
+
         os.system("xpaset -p ds9 regions command \"{ellipse "+str(xcenter)+" "+str(
             ycenter)+" "+str(a)+" "+str(b)+" "+str(pa)+" # color=red width=2}\"")
-        #os.system("xpaset -p ds9 zoom to fit")
         os.system("xpaset -p ds9 regions system  image")
         os.system("xpaset -p ds9 regions format ds9")
         os.system("xpaset -p ds9 regions save foo.reg")
@@ -1120,18 +1070,12 @@ def main(root_name):
         ds9_command += " -scale minmax"
         ds9_command += " -zoom to fit"
         ds9_command += " -pan to "+str(xcenter)+" "+str(ycenter)
-        # ds9_command += " -regions command \"ellipse "+str(xcenter)+" "+str(ycenter)+" "+str(a)+" "+str(b)+" "+str(pa)+" # color=red width=2\""
         os.system(ds9_command+" &")
 
         os.system("sleep 3")
-        ##os.system("xpaset -p ds9 pan to "+str(xcenter)+" "+str(ycenter))
-        #os.system("xpaset -p ds9 scale minmax")
-        #os.system("xpaset -p ds9 scale log")
-        #os.system("xpaset -p ds9 height 500")
-        #os.system("xpaset -p ds9 width 500")
+
         os.system("xpaset -p ds9 regions command \"{ellipse "+str(xcenter)+" "+str(
             ycenter)+" "+str(a)+" "+str(b)+" "+str(pa)+" # color=red width=2}\"")
-        #os.system("xpaset -p ds9 zoom to fit")
         os.system("xpaset -p ds9 regions system  image")
         os.system("xpaset -p ds9 regions format ds9")
         os.system("xpaset -p ds9 regions save foo.reg")
@@ -1158,18 +1102,11 @@ def main(root_name):
         ds9_command += " -scale minmax"
         ds9_command += " -zoom to fit"
         ds9_command += " -pan to "+str(xcenter)+" "+str(ycenter)
-        # ds9_command += " -regions command \"ellipse "+str(xcenter)+" "+str(ycenter)+" "+str(a)+" "+str(b)+" "+str(pa)+" # color=red width=2\""
         os.system(ds9_command+" &")
 
         os.system("sleep 3")
-        ##os.system("xpaset -p ds9 pan to "+str(xcenter)+" "+str(ycenter))
-        #os.system("xpaset -p ds9 scale minmax")
-        #os.system("xpaset -p ds9 scale log")
-        #os.system("xpaset -p ds9 height 500")
-        #os.system("xpaset -p ds9 width 500")
         os.system("xpaset -p ds9 regions command \"{ellipse "+str(xcenter)+" "+str(
             ycenter)+" "+str(a)+" "+str(b)+" "+str(pa)+" # color=red width=2}\"")
-        #os.system("xpaset -p ds9 zoom to fit")
         os.system("xpaset -p ds9 regions system  image")
         os.system("xpaset -p ds9 regions format ds9")
         os.system("xpaset -p ds9 regions save foo.reg")
@@ -1310,8 +1247,6 @@ def main(root_name):
     #######################
 
     def scroll_event(event):
-        #print 'you pressed', event.key, event.button, event.xdata, event.ydata, event.key
-
         global a, b, pa, xcenter, ycenter, delta_axis, delta_angle
 
         if event.inaxes == ax:
@@ -1383,7 +1318,6 @@ def main(root_name):
     def press_key(event):
         global a, b, pa, xcenter, ycenter, delta_axis, delta_angle, center_change
         global x_new, y_new, r1, r2, plotFits, imgplot, r1_org, r2_org, middle, mid_org, inv
-        #print 'you pressed', event.key
 
         if event.key == 'up':
             ycenter += delta_position
@@ -1455,7 +1389,6 @@ def main(root_name):
 
     def on_click(event):
         global a, b, pa, xcenter, ycenter, delta_axis, delta_angle, center_change, x_new, y_new
-        #print 'you pressed', event.key, event.button, event.xdata, event.ydata, event.key
 
         if event.key == 'control' or event.key == 'shift':
             addOne_axis(event)
@@ -1557,4 +1490,4 @@ if __name__ == '__main__':
     opts, args = arg_parser()
     file_root = opts.object
 
-    main(file_root)
+    main('./galaxies/'+file_root)
