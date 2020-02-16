@@ -3,6 +3,7 @@
 2. [How to run](#run)
 3. [Options](#Options)
 4. [Help](#Help)
+6. [Requirements](#dependencies)
 
 ## Pylipse <a name="Pylipse"></a>
 
@@ -93,6 +94,35 @@ Use mouse middle wheel for scrolling
    - chaning the contrast
    - reset the contrst parameters
 
+
+## Requirements <a name="dependencies"></a>
+
+This code has been tested using **Python 3.7.6**. For any later python versions, you may need to modify/adjust a few syntaxes to get all the GUI features to work. 
+
+This is the list of the python packages you need. 
+
+           - matplotlib
+           - numpy
+           - optparse
+           - astropy
+           - PIL
+
+
+To install `PIL` (Pillow):
+
+            pip install pillow
+            
+Having the following packages is optional (to activate the `HELP` icon of the GUI):
+
+           - tkinter
+           - Pmw
+           
+**Note:** *tkinter* might not be installed using *pip*. So, you need to install it on your system separately. On *Ubuntu*, you can use the following command:
+
+
+            sudo apt-get install python3-tk
+           
+           
    - - - -
    
  * Version : v1.0 (March 2016)
