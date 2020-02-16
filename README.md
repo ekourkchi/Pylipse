@@ -99,12 +99,13 @@ Use mouse middle wheel for scrolling
 
 This code has been tested using **Python 3.7.6**. For any later python versions, you may need to modify/adjust a few syntaxes to get all the GUI features to work. 
 
-This is the list of the python packages you need. 
+This is the list of major Python packages you need. 
 
            - matplotlib
            - numpy
            - optparse
            - astropy
+           - pylab
            - PIL
 
 
@@ -112,7 +113,7 @@ To install `PIL` (Pillow):
 
             pip install pillow
             
-Having the following packages is optional (to activate the `HELP` icon of the GUI):
+Having the following packages is optional (necessary activate the `HELP` icon in the GUI):
 
            - tkinter
            - Pmw
