@@ -9,7 +9,8 @@ A GUI for manual ellipse fitting for Elliptical and Spiral galaxies ...
 
             python pylipse.py [options]
             
- * example:
+### Example
+ 
             python  pylipse.py -j  NGC4037 
 
 ## Options 
@@ -46,17 +47,18 @@ A GUI for manual ellipse fitting for Elliptical and Spiral galaxies ...
                                     The object name
 
  
-********** Mouse Actions ***********
-Use mouse middle wheel for scrolling
-************************************
+## Help
 
-A) When mouse pointer is on the image
+### Mouse Actions
+Use mouse middle wheel for scrolling
+
+ A) When mouse pointer is on the image
 
  a1) scroll-down  = zoom-in
  a2) scroll-up    = zoom-outer
  a3) middle-click = re-center the image
 
-B) When anywhere on the GUI window
+ B) When anywhere on the GUI window
  
  b1) Ctrl+Scroll_up   = increase the semi-major axis
  b2) Ctrl+Scroll_down = decrease the semi-major axis
@@ -79,11 +81,12 @@ B) When anywhere on the GUI window
  b10) z+Left_click = choose a new center for the ellipse (b7)
  b11) q/Esc = Ignoring the new chosen center 
 
-C) When the fits file is displayed (no jpg file)
+ C) When the fits file is displayed (no jpg file)
 'c': chaning the contrast
 'r': reset the contrst parameters
 
-
-Version : v1.0 (March 2016)
-email   : ehsan@ifa.hawaii.edu
-Copyright 2016 Ehsan Kourkchi
+   - - - -
+   
+ * Version : v1.0 (March 2016)
+ * Author: *Ehsan Kourkchi* <ekourkchi@gmail.com>
+ * Copyright 2016: Feel free to distribute and modify for a better performance
